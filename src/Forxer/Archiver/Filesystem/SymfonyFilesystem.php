@@ -9,9 +9,40 @@
 namespace Forxer\Archiver\Filesystem;
 
 use Forxer\Archiver\Filesystem\FilesystemInterface;
-use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Filesystem\Filesystem as BaseFilesystem;
 
-class SymfonyFilesystem extends Filesystem implements FilesystemInterface
+class SymfonyFilesystem extends BaseFilesystem implements FilesystemInterface
 {
+	/**
+	 * Determine if a file exists.
+	 *
+	 * @param  string  $path
+	 * @return bool
+	 */
+	public function exists($path)
+	{
+		return file_exists($path);
+	}
 
+	/**
+	 * Determine if the given path is a file.
+	 *
+	 * @param  string  $file
+	 * @return bool
+	 */
+	public function isFile($file)
+	{
+		return is_file($file);
+	}
+
+	/**
+	 * Determine if the given path is writable.
+	 *
+	 * @param  string  $path
+	 * @return bool
+	 */
+	public function isWritable($path)
+	{
+		return is_writable($path);
+	}
 }

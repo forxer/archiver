@@ -1,0 +1,36 @@
+{
+	"name" : "forxer/archiver",
+	"type" : "library",
+	"description" : "Archiver allows you to manipulate archives more easily than the basic PHP functions.",
+	"keywords" : [
+		"ZIP",
+		"Archive"
+	],
+	"homepage" : "https://github.com/forxer/archiver",
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Vincent Garnier",
+			"email" : "contact@okatea.org",
+			"homepage" : "http://forx.fr",
+			"role" : "Developer"
+		}, {
+			"name" : "Nils Plaschke",
+			"email" : "github@nilsplaschke.de",
+			"homepage" : "http://nilsplaschke.de",
+			"role" : "Developer"
+		}
+	],
+	"require" : {
+		"php" : ">=5.3.0"
+	},
+	"require-dev" : {
+		"symfony/filesystem" : "~2.4",
+		"illuminate/filesystem" : "~4.1"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Forxer\\Archiver\\" : "src"
+		}
+	},
+	"minimum-stability" : "dev"
+}
