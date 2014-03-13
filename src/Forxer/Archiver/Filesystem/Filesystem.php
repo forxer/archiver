@@ -24,18 +24,6 @@ class Filesystem implements FilesystemInterface
 	}
 
 	/**
-	 * Create a directory.
-	 *
-	 * @param  string  $path
-	 * @param  int     $mode
-	 * @return bool
-	 */
-	public function mkdir($path, $mode = 0777)
-	{
-		return mkdir($path, $mode, true);
-	}
-
-	/**
 	 * Determine if the given path is a file.
 	 *
 	 * @param  string  $file
@@ -55,6 +43,30 @@ class Filesystem implements FilesystemInterface
 	public function isWritable($path)
 	{
 		return is_writable($path);
+	}
+
+	/**
+	 * Create a directory.
+	 *
+	 * @param  string  $path
+	 * @param  int     $mode
+	 * @return bool
+	 */
+	public function mkdir($path, $mode = 0777)
+	{
+		return mkdir($path, $mode, true);
+	}
+
+	/**
+	 * Write the contents of a file.
+	 *
+	 * @param  string  $path
+	 * @param  string  $contents
+	 * @return int
+	 */
+	public function put($path, $contents)
+	{
+		return file_put_contents($path, $contents);
 	}
 
 	/**

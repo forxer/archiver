@@ -19,15 +19,6 @@ interface FilesystemInterface
 	public function exists($path);
 
 	/**
-	 * Create a directory.
-	 *
-	 * @param  string  $path
-	 * @param  int     $mode
-	 * @return bool
-	 */
-	public function mkdir($path, $mode = 0777);
-
-	/**
 	 * Determine if the given path is a file.
 	 *
 	 * @param  string  $file
@@ -42,6 +33,24 @@ interface FilesystemInterface
 	 * @return bool
 	 */
 	public function isWritable($path);
+
+	/**
+	 * Create a directory.
+	 *
+	 * @param  string  $path
+	 * @param  int     $mode
+	 * @return bool
+	 */
+	public function mkdir($path, $mode = 0777);
+
+	/**
+	 * Write the contents of a file.
+	 *
+	 * @param  string  $path
+	 * @param  string  $contents
+	 * @return int
+	 */
+	public function put($path, $contents);
 
 	/**
 	 * Removes files or directories.

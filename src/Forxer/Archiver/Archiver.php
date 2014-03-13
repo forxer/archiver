@@ -11,6 +11,7 @@ namespace Forxer\Archiver;
 use Forxer\Archiver\Repositories\RepositoryInterface;
 use Forxer\Archiver\Filesystem\FilesystemInterface;
 use Forxer\Archiver\Filesystem\Filesystem;
+use Symfony\Component\Finder\Finder;
 
 use Exception;
 
@@ -363,10 +364,18 @@ class Archiver
 	 */
 	protected function addDir($pathToDir)
 	{
-		//is a dir, so remotely go through it and call the add method
-		foreach ($this->file->allFiles($pathToDir) as $file) {
+		$files = Finder::create()->files()->in($pathToDir);
+
+		$startFolderPath = $this->getCurrentFolderPath();
+
+		foreach ($files as $file)
+		{
+			$this->folder($file->getRelativePath());
+
 			$this->addFile($pathToDir . '/' . $file->getRelativePathname());
 		}
+
+		$this->folder($startFolderPath);
 	}
 
 	/**

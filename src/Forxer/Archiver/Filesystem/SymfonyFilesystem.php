@@ -45,4 +45,16 @@ class SymfonyFilesystem extends BaseFilesystem implements FilesystemInterface
 	{
 		return is_writable($path);
 	}
+
+	/**
+	 * Write the contents of a file.
+	 *
+	 * @param  string  $path
+	 * @param  string  $contents
+	 * @return int
+	 */
+	public function put($path, $contents)
+	{
+		return file_put_contents($path, $contents);
+	}
 }
