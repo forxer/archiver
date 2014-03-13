@@ -30,7 +30,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"Forxer\\Archiver\\" : "src"
+			"Forxer\\Archiver\\" : "src/Forxer/Archiver"
 		}
 	},
 	"minimum-stability" : "dev"
