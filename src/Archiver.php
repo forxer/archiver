@@ -364,7 +364,11 @@ class Archiver
 	 */
 	protected function addDir($pathToDir)
 	{
-		$files = Finder::create()->files()->in($pathToDir);
+		$files = Finder::create()
+			->ignoreVCS(false)
+			->ignoreDotFiles(false)
+			->files()
+			->in($pathToDir);
 
 		$startFolderPath = $this->getCurrentFolderPath();
 
